@@ -2,7 +2,7 @@
   "name": "yamschocolatier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kaizen971.github.io/yams",
+  "homepage": "https://kaizen971.github.io/yamschocolatier",
   "dependencies": {
     "@react-navigation/native-stack": "^6.6.2",
     "@testing-library/jest-dom": "^5.16.4",
