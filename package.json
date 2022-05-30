@@ -2,7 +2,7 @@
   "name": "yamschocolatier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kaizen971.github.io",
+  "homepage": "https://kaizen971.github.io/yamschocolatier",
   "dependencies": {
     "@react-navigation/native-stack": "^6.6.2",
     "@testing-library/jest-dom": "^5.16.4",
@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b fin -d build"
   },
   "eslintConfig": {
     "extends": [
