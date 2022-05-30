@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+import logo from './Assets/chocolat_yams.png';
 import './App.css';
+import {  Link } from "react-router-dom";
+import Nav from './nav';
 
 function App() {
   return (
     <div className="App">
+        <Nav/>
       <header className="App-header">
+      
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         Chocolat_Yams
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to="/login">Login</Link>
+
       </header>
     </div>
   );
