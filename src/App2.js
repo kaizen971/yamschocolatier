@@ -1,9 +1,13 @@
 import './App.css';
 import { useState } from 'react';
 import Nav from './nav';
+import {Redirect} from 'react-router-dom';
+
 function App2() {
   const handleSubmit = (event) => {
     var body = { email: email , password:password }
+ 
+
       fetch("https://56ff-78-116-252-179.eu.ngrok.io/login",{
         method: 'post',
         mode:'cors',
@@ -11,7 +15,17 @@ function App2() {
           'Content-Type': 'application/json',
         }, 
         body: JSON.stringify(body)
-      })
+      }).then(
+        (response) => {
+          console.log(response.status)
+          if(response.status === 400){
+            setconnexion(false)
+          }
+          if(response.status === 200){
+            setconnexion(true)
+           return <Redirect to="/Yams" />
+          }
+        })
  }
  
  const [email, setEmail] = useState("");
@@ -24,7 +38,10 @@ function App2() {
     <div className="App">
        <Nav/>
       <header className="App-header">
-      <form onSubmit={handleSubmit}>
+      {connexion && <p style={{color:"green"}}>Connexion Réussie</p>} 
+      {!connexion && <p style={{color:"red"}}>Connexion Failed</p>} 
+
+      <form >
   <label>
     email:
     <input type="text" 
@@ -39,8 +56,8 @@ function App2() {
           value={password}
           onChange={(e) => setpassword(e.target.value)} />
   </label>
-  <input type="submit" />
 </form>
+<button onClick={() => handleSubmit()}>Connexion</button>
       </header>
     </div>
   );
