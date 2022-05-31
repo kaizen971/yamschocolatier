@@ -1,5 +1,15 @@
-import './App.css';
+import './Yams.css';
  import Nav from './nav';
+
+function Random(){
+
+  var RandomNumber = Math.floor(Math.random() * 6) + 1 ;
+
+  return (RandomNumber)
+
+
+}
+
 
 function Inscription() {
   return (
@@ -8,6 +18,23 @@ function Inscription() {
       {/* {subscribeconfirm && <p>Inscription Réussie</p>} */}
       <header className="App-header">
         <p>Jeux Yams</p>
+        <div className='container'>
+          <div className='dé'>
+              <p className='chiffre'>{Random()}</p>
+          </div>
+          <div className='dé'>
+              <p className='chiffre'>{Random()}</p>
+          </div>
+          <div className='dé'>
+              <p className='chiffre'>{Random()}</p>
+          </div>
+          <div className='dé'>
+              <p className='chiffre'>{Random()}</p>
+          </div>
+          <div className='dé'>
+              <p className='chiffre'>{Random()}</p>
+          </div>
+        </div>
       </header>
     </div>
   );
