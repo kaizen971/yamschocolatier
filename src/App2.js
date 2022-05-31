@@ -1,7 +1,6 @@
 import './App.css';
 import { useState } from 'react';
 import Nav from './nav';
-import {Redirect} from 'react-router-dom';
 
 function App2() {
   const handleSubmit = (event) => {
@@ -23,7 +22,6 @@ function App2() {
           }
           if(response.status === 200){
             setconnexion(true)
-           return <Redirect to="/Yams" />
           }
         })
  }
