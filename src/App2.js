@@ -11,10 +11,7 @@ function App2() {
           'Content-Type': 'application/json',
         }, 
         body: JSON.stringify(body)
-      }).then((response) => {
-       
-         console.log(response);
-      });
+      })
  }
  
  const [email, setEmail] = useState("");

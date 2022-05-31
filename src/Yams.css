@@ -61,11 +61,12 @@ label{
 }
 
 .dé{
-width: 100px;
-height: 100px;
+width: 110px;
+height: 110px;
 background-color: white;
 border-radius: 20%;
 margin: 50px;
+
 }
 
 .chiffre{
@@ -75,7 +76,13 @@ color: black;
 .container{
   display: flex;
   flex-direction: row;
+}
 
+img{
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
 
+ 
 
 }

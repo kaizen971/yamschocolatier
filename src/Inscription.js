@@ -5,7 +5,6 @@ import { useState } from 'react';
 function Inscription() {
     const handleSubmit = () => {
     var body = { firstName : firstName ,lastName:lastName, email: email , password:password , passwordConfirm: passwordConfirm}
-    console.log(body)
       fetch("https://56ff-78-116-252-179.eu.ngrok.io/subscribe",{
         method: 'post',
         mode:'cors',
@@ -14,9 +13,11 @@ function Inscription() {
         }, 
         body: JSON.stringify(body)
       }).then(
-        setsubscribeconfirm(true)
-      )
+        () => {
+          setsubscribeconfirm(true)
+        })
  }
+ 
  const [firstName, setfirstName] = useState("");
  const [lastName, setlastName] = useState("");
  const [email, setEmail] = useState("");
@@ -28,15 +29,14 @@ function Inscription() {
   return (
     <div className="App">
       <Nav/>
-      {/* {subscribeconfirm && <p>Inscription Réussie</p>} */}
+     {subscribeconfirm && <p>Inscription Réussie</p>} 
       <header className="App-header">
       <form onSubmit={handleSubmit}>
   <label>
     firstName:
     <input type="text" 
           value={firstName}
-          onChange={(e) => setfirstName(e.target.value)}
-          
+          onChange={(e) => setfirstName(e.target.value)} 
           />
   </label>
   <label>
@@ -44,7 +44,6 @@ function Inscription() {
     <input type="text" 
           value={lastName}
           onChange={(e) => setlastName(e.target.value)}
-          
           />
   </label>
   <label>
@@ -67,7 +66,7 @@ function Inscription() {
           value={passwordConfirm}
           onChange={(e) => setpasswordConfirm(e.target.value)} />
   </label>
-  <button onClick={Inscription} value="Submit" >
+  <button type='submit' value="Submit" >
     Envoyer
     </button>
 </form>

@@ -1,13 +1,11 @@
 import './Yams.css';
  import Nav from './nav';
 
+
+
 function Random(){
-
   var RandomNumber = Math.floor(Math.random() * 6) + 1 ;
-
-  return (RandomNumber)
-
-
+  return (RandomNumber);
 }
 
 
@@ -20,19 +18,20 @@ function Inscription() {
         <p>Jeux Yams</p>
         <div className='container'>
           <div className='dé'>
-              <p className='chiffre'>{Random()}</p>
+              <img src={require(`./Assets/${Random()}.png`)}  />
+              {/* <p className='chiffre'>{Random()}</p> */}
           </div>
           <div className='dé'>
-              <p className='chiffre'>{Random()}</p>
+          <img src={require(`./Assets/${Random()}.png`)} />
           </div>
           <div className='dé'>
-              <p className='chiffre'>{Random()}</p>
+          <img src={require(`./Assets/${Random()}.png`)} />
           </div>
           <div className='dé'>
-              <p className='chiffre'>{Random()}</p>
+          <img src={require(`./Assets/${Random()}.png`)} />
           </div>
           <div className='dé'>
-              <p className='chiffre'>{Random()}</p>
+          <img src={require(`./Assets/${Random()}.png`)} />
           </div>
         </div>
       </header>
