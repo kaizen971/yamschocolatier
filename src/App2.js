@@ -5,8 +5,7 @@ function App2() {
   const handleSubmit = (event) => {
     console.log(event);
     var body = { email: email , password:password }
-    console.log(body)
-      fetch("http://localhost:8000/login",{
+      fetch("https://56ff-78-116-252-179.eu.ngrok.io/login",{
         method: 'post',
         mode:'cors',
         headers: {
