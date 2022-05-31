@@ -6,7 +6,7 @@ function Inscription() {
     const handleSubmit = () => {
     var body = { firstName : firstName ,lastName:lastName, email: email , password:password , passwordConfirm: passwordConfirm}
     console.log(body)
-      fetch("http://localhost:8000/subscribe",{
+      fetch("https://56ff-78-116-252-179.eu.ngrok.io/subscribe",{
         method: 'post',
         mode:'cors',
         headers: {
