@@ -12,6 +12,9 @@ return(<nav className='nav'>
   <li>
     <Link to="/subscribe">Subscribe</Link>
   </li>
+  <li>
+    <Link to="/Yams">Yams</Link>
+  </li>
 </ul>
 </nav>
 )

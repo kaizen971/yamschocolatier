@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './App2';
 import Inscription from './Inscription';
+import Yams from './Yams'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -14,6 +15,7 @@ root.render(
     <Route path="/" element={<App />} />
     <Route path="/login" element={<Login/>} />
     <Route path="/subscribe" element={<Inscription/>} />
+    <Route path="/Yams" element={<Yams/>} />
   </Routes>
 </BrowserRouter>
 );
