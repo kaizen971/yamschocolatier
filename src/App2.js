@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Nav from './nav';
 function App2() {
   const handleSubmit = (event) => {
-    console.log(event);
     var body = { email: email , password:password }
       fetch("https://56ff-78-116-252-179.eu.ngrok.io/login",{
         method: 'post',
@@ -12,11 +11,16 @@ function App2() {
           'Content-Type': 'application/json',
         }, 
         body: JSON.stringify(body)
+      }).then((response) => {
+       
+         console.log(response);
       });
  }
  
  const [email, setEmail] = useState("");
  const [password, setpassword] = useState("");
+ const [connexion, setconnexion] = useState(false);
+
 
  
   return (
