@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import Nav from './nav';
+import Nav from '../Component/nav';
 
 function App2() {
   const handleSubmit = (event) => {

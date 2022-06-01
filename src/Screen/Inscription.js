@@ -1,11 +1,11 @@
 import './App.css';
 import { useState } from 'react';
- import Nav from './nav';
+ import Nav from '../Component/nav';
 
 function Inscription() {
     const handleSubmit = () => {
     var body = { firstName : firstName ,lastName:lastName, email: email , password:password , passwordConfirm: passwordConfirm}
-      fetch("https://56ff-78-116-252-179.eu.ngrok.io/subscribe",{
+      fetch("https://9d98-78-116-252-179.eu.ngrok.io/subscribe",{
         method: 'post',
         mode:'cors',
         headers: {

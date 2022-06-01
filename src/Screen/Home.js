@@ -1,7 +1,7 @@
-import logo from './Assets/chocolat_yams.png';
+import logo from '../Assets/chocolat_yams.png';
 import './App.css';
 import {  Link } from "react-router-dom";
-import Nav from './nav';
+import Nav from '../Component/nav';
 
 function App() {
   return (
