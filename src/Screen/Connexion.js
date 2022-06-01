@@ -4,12 +4,13 @@ import Nav from '../Component/nav';
 
 function App2() {
   const handleSubmit = (event) => {
-    var body = { email: email , password:password }
- 
+    var body = { email: email , password:password, status:"client" }
+    
 
-      fetch("https://9d98-78-116-252-179.eu.ngrok.io/login",{
+      fetch("http://localhost:8000/login",{
         method: 'post',
         mode:'cors',
+        credentials:'include',
         headers: {
           'Content-Type': 'application/json',
         }, 
@@ -29,15 +30,12 @@ function App2() {
  const [email, setEmail] = useState("");
  const [password, setpassword] = useState("");
  const [connexion, setconnexion] = useState(null);
-
-
- 
   return (
     <div className="App">
        <Nav/>
       <header className="App-header">
       {connexion && <p style={{color:"green"}}>Connexion Réussie</p>} 
-      {connexion == false && <p style={{color:"red"}}>Connexion Failed</p>} 
+      {connexion === false && <p style={{color:"red"}}>Connexion Failed</p>} 
 
       <form >
   <label>

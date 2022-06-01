@@ -1,12 +1,13 @@
 import './Yams.css';
- import Nav from '../Component/nav';
- import { useState } from 'react';
+ import Nav from '../Component/nav.js';
+ import React, { useState, useEffect } from 'react';
 
 
 
 function Inscription() {
   const [tableau, settableau] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [authentification, setAuthentification] = useState(false);
 
   const DiceLength = 5;
   function shuffleDice(){
@@ -18,19 +19,46 @@ function Inscription() {
       for (let i = 0; i < DiceLength ; i++) {
       var RandomNumber = Math.floor(Math.random() * 6) + 1 ;
       dicetab.push(RandomNumber)
-      console.log(dicetab)
       } 
        settableau(dicetab);
        setIsLoading(true);
   }
 
+  useEffect(() => {
+    // Met à jour le titre du document via l’API du navigateur
+    fetch("http://localhost:8000/user",{
+      method: 'get',
+      mode:'cors',
+      credentials:'include',
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+    }).then(
+      (response) => {
+        console.log(response.status)
+        if(response.status === 400){
+          console.log("no")
+          setAuthentification(false)
+        }
+        if(response.status === 200){
+          console.log("yes")
+          setAuthentification(true)
+        }
+      })
+
+
+
+  });
+
   return (
     <div className="App">
       <Nav/>
       {/* {subscribeconfirm && <p>Inscription Réussie</p>} */}
-      <header className="App-header">
+      {!authentification && <header className="App-header"><p className='authenError' style={{color:"red"}}>Vous devez vous authentifier</p></header>}
+
+      {authentification &&<header className="App-header">
         <p>Jeux Yams</p>
-        {isLoading === true &&<div className='container'>
+        {isLoading === true && <div className='container'>
           <div className='dé'>
               <img src={require(`../Assets/${tableau[0]}.png`)}  alt="dé_1" />
           </div>
@@ -48,7 +76,7 @@ function Inscription() {
           </div>
         </div>}
         <button onClick={shuffleDice}>Lancer le jeu Yams</button>
-      </header>
+      </header>}
   
     </div>
 

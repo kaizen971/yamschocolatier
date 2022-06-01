@@ -5,6 +5,7 @@ import App from './Screen/Home';
 import Login from './Screen/Connexion';
 import Inscription from './Screen/Inscription';
 import Yams from './Screen/Yams'
+import Deconnexion from './Screen/Deconnexion';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ root.render(
     <Route path="/login" element={<Login/>} />
     <Route path="/subscribe" element={<Inscription/>} />
     <Route path="/Yams" element={<Yams/>} />
+    <Route path="/Disconnect" element={<Deconnexion/>} />
   </Routes>
 </BrowserRouter>
 );

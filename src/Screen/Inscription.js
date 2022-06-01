@@ -5,9 +5,10 @@ import { useState } from 'react';
 function Inscription() {
     const handleSubmit = () => {
     var body = { firstName : firstName ,lastName:lastName, email: email , password:password , passwordConfirm: passwordConfirm}
-      fetch("https://9d98-78-116-252-179.eu.ngrok.io/subscribe",{
+      fetch("http://localhost:8000/subscribe",{
         method: 'post',
         mode:'cors',
+        credentials:'include',
         headers: {
           'Content-Type': 'application/json',
         }, 

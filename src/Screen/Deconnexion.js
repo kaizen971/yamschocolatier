@@ -1,13 +1,16 @@
-import {  Link } from "react-router-dom";
+import './App.css';
 import React, { useState, useEffect } from 'react';
+ import Nav from '../Component/nav';
+ 
 
-function Nav(){
+function Deconnexion() {
+
   const [authentification, setAuthentification] = useState(false);
 
 
   useEffect(() => {
     // Met à jour le titre du document via l’API du navigateur
-    fetch("http://localhost:8000/user",{
+    fetch("http://localhost:8000/logout",{
       method: 'get',
       mode:'cors',
       credentials:'include',
@@ -16,35 +19,22 @@ function Nav(){
       }, 
     }).then(
       (response) => {
+        console.log(response.status)
         if(response.status === 400){
           setAuthentification(false)
         }
         if(response.status === 200){
           setAuthentification(true)
         }
-      })}, []);
-
-
-return(<nav className='nav'>
-<ul>
-  <li>
-    <Link to="/">Home</Link>
-  </li>
-  <li>
-    <Link to="/login">Login</Link>
-  </li>
-  <li>
-    <Link to="/subscribe">Subscribe</Link>
-  </li>
-  <li>
-    <Link to="/Yams">Yams</Link>
-  </li>
-  {authentification &&<li>
-    <Link to="/Disconnect">Deconnexion</Link>
-  </li>}
-</ul>
-</nav>
-)
+      })});
+ 
+  return (
+    <div className="App">
+      <Nav/>
+      {authentification && <p>Vous avez était déconnecté</p>}
+      {!authentification && <p>Un problème est survenue</p>}
+    </div>
+  );
 }
 
-export default Nav;
+export default Deconnexion;
