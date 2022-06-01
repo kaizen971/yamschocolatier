@@ -7,7 +7,7 @@ function App2() {
     var body = { email: email , password:password }
  
 
-      fetch("https://56ff-78-116-252-179.eu.ngrok.io/login",{
+      fetch("https://9d98-78-116-252-179.eu.ngrok.io/login",{
         method: 'post',
         mode:'cors',
         headers: {
@@ -28,7 +28,7 @@ function App2() {
  
  const [email, setEmail] = useState("");
  const [password, setpassword] = useState("");
- const [connexion, setconnexion] = useState(false);
+ const [connexion, setconnexion] = useState(null);
 
 
  
@@ -37,7 +37,7 @@ function App2() {
        <Nav/>
       <header className="App-header">
       {connexion && <p style={{color:"green"}}>Connexion Réussie</p>} 
-      {!connexion && <p style={{color:"red"}}>Connexion Failed</p>} 
+      {connexion == false && <p style={{color:"red"}}>Connexion Failed</p>} 
 
       <form >
   <label>
