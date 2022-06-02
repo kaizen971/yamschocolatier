@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
  import Nav from '../Component/nav';
- 
+ import { Base_Url } from '../Constants/Constants';
 
 function Deconnexion() {
 
@@ -10,7 +10,7 @@ function Deconnexion() {
 
   useEffect(() => {
     // Met à jour le titre du document via l’API du navigateur
-    fetch("http://localhost:8000/logout",{
+    fetch(`${Base_Url}/logout`,{
       method: 'get',
       mode:'cors',
       credentials:'include',
@@ -31,7 +31,7 @@ function Deconnexion() {
   return (
     <div className="App">
       <Nav/>
-      {authentification && <p>Vous avez était déconnecté</p>}
+      {authentification && <p>Vous avez été déconnecté</p>}
       {!authentification && <p>Un problème est survenue</p>}
     </div>
   );

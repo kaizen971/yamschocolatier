@@ -1,13 +1,13 @@
 import {  Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
-
+import { Base_Url } from "../Constants/Constants";
 function Nav(){
   const [authentification, setAuthentification] = useState(false);
 
 
   useEffect(() => {
     // Met à jour le titre du document via l’API du navigateur
-    fetch("http://localhost:8000/user",{
+    fetch(`${Base_Url}/user`,{
       method: 'get',
       mode:'cors',
       credentials:'include',
@@ -22,7 +22,7 @@ function Nav(){
         if(response.status === 200){
           setAuthentification(true)
         }
-      })}, []);
+      })},[]);
 
 
 return(<nav className='nav'>
@@ -30,12 +30,12 @@ return(<nav className='nav'>
   <li>
     <Link to="/">Home</Link>
   </li>
-  <li>
+  {!authentification &&<li>
     <Link to="/login">Login</Link>
-  </li>
-  <li>
+  </li>}
+  {!authentification &&<li>
     <Link to="/subscribe">Subscribe</Link>
-  </li>
+  </li>}
   <li>
     <Link to="/Yams">Yams</Link>
   </li>

@@ -1,11 +1,13 @@
 import './App.css';
 import { useState } from 'react';
  import Nav from '../Component/nav';
+import { Base_Url } from '../Constants/Constants';
+
 
 function Inscription() {
     const handleSubmit = () => {
     var body = { firstName : firstName ,lastName:lastName, email: email , password:password , passwordConfirm: passwordConfirm}
-      fetch("http://localhost:8000/subscribe",{
+      fetch(`${Base_Url}/subscribe`,{
         method: 'post',
         mode:'cors',
         credentials:'include',

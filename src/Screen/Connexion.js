@@ -1,13 +1,14 @@
 import './App.css';
 import { useState } from 'react';
 import Nav from '../Component/nav';
+import { Base_Url } from '../Constants/Constants';
 
 function App2() {
   const handleSubmit = (event) => {
     var body = { email: email , password:password, status:"client" }
     
 
-      fetch("http://localhost:8000/login",{
+      fetch(`${Base_Url}/login`,{
         method: 'post',
         mode:'cors',
         credentials:'include',
