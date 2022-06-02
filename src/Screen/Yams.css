@@ -7,82 +7,55 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #e1c1b0;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  margin-top: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-ul{
-display: flex !important;
-flex-direction: row !important;
-justify-content: space-around;
-}
-
-li{
-text-decoration: none !important;
-display: flex;
-}
-
-form{
+form {
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-around;
-  
-
-}
-label{
-
-  margin-bottom: 20px;
 }
 
-.dé{
-width: 110px;
-height: 110px;
-background-color: white;
-border-radius: 20%;
-margin: 50px;
-
+.dé {
+  width: 110px;
+  height: 110px;
+  background-color: white;
+  border-radius: 20%;
+  margin: 50px;
 }
 
-.chiffre{
-color: black;
+.chiffre {
+  color: black;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: row;
 }
 
-img{
+.imageDice {
   width: 100px;
   height: 100px;
   margin-top: 5px;
+}
 
- 
 
+
+.login_subscribe a {
+  text-decoration: underline;
+}
+
+.authenError {
+  margin-top: 20%;
 }

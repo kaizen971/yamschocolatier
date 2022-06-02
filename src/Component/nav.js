@@ -28,19 +28,19 @@ function Nav(){
 return(<nav className='nav'>
 <ul>
   <li>
-    <Link to="/">Home</Link>
+    <Link to="/">Accueil</Link>
   </li>
   {!authentification &&<li>
-    <Link to="/login">Login</Link>
+    <Link to="/login">Connexion</Link>
   </li>}
   {!authentification &&<li>
-    <Link to="/subscribe">Subscribe</Link>
+    <Link to="/subscribe">Inscription</Link>
   </li>}
   <li>
     <Link to="/Yams">Yams</Link>
   </li>
   {authentification &&<li>
-    <Link to="/Disconnect">Deconnexion</Link>
+    <Link to="/Disconnect">Déconnexion</Link>
   </li>}
 </ul>
 </nav>

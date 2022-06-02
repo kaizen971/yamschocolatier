@@ -1,60 +1,63 @@
 import './App.css';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../Component/nav';
 import { Base_Url } from '../Constants/Constants';
+import { useNavigate } from "react-router-dom";
+
 
 function App2() {
   const handleSubmit = (event) => {
-    var body = { email: email , password:password, status:"client" }
+    var body = { email: email, password: password, status: "client" }
     
+    fetch(`${Base_Url}/login`, {
+      method: 'post',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify(body)
+    }).then(
+      (response) => {
+        console.log(response.status)
+        if (response.status === 400) {
+          setconnexion(false)
+        }
+        if (response.status === 200) {
+          setconnexion(true)
+         
+        }
+      })
+  }
 
-      fetch(`${Base_Url}/login`,{
-        method: 'post',
-        mode:'cors',
-        credentials:'include',
-        headers: {
-          'Content-Type': 'application/json',
-        }, 
-        body: JSON.stringify(body)
-      }).then(
-        (response) => {
-          console.log(response.status)
-          if(response.status === 400){
-            setconnexion(false)
-          }
-          if(response.status === 200){
-            setconnexion(true)
-          }
-        })
- }
- 
- const [email, setEmail] = useState("");
- const [password, setpassword] = useState("");
- const [connexion, setconnexion] = useState(null);
+  let navigate = useNavigate();
+
+
+
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [connexion, setconnexion] = useState(null);
+
   return (
     <div className="App">
-       <Nav/>
+      <Nav />
       <header className="App-header">
-      {connexion && <p style={{color:"green"}}>Connexion Réussie</p>} 
-      {connexion === false && <p style={{color:"red"}}>Connexion Failed</p>} 
 
-      <form >
-  <label>
-    email:
-    <input type="text" 
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          
-          />
-  </label>
-  <label>
-    password:
-    <input type="password" 
-          value={password}
-          onChange={(e) => setpassword(e.target.value)} />
-  </label>
-</form>
-<button onClick={() => handleSubmit()}>Connexion</button>
+      {connexion && <p style={{ color: "green" }}>Connexion Réussie</p>}
+        {connexion === false && <p style={{ color: "red" }}>Connexion échouée</p>}  
+        <div className='formLogin'>
+       
+          <p>Merci de saisir vos identifiants de connexion</p>
+          <label>
+            <input type="email" placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)} />
+          </label>
+
+          <label>
+            <input type="password" placeholder='Mot de passe' required value={password} onChange={(e) => setpassword(e.target.value)} />
+          </label>
+          <button className="btnConnexion" onClick={() => handleSubmit()}>Connexion</button>
+        </div>
       </header>
     </div>
   );

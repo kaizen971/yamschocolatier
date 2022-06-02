@@ -1,21 +1,19 @@
 import logo from '../Assets/chocolat_yams.png';
 import './App.css';
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from '../Component/nav';
 
 function App() {
   return (
     <div className="App">
-        <Nav/>
+      <Nav />
       <header className="App-header">
-      
-
+        <h1>Bienvenue à la chocolaterie de Jordan !</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Chocolat_Yams
-        </p>
-        <Link to="/login">Login</Link>
-
+        <p>Vous souhaitez gagner une ou plusieurs patisseries simplement en jouant ?</p>
+        <div className='login_subscribe'>
+          <Link to="/login">Identifiez vous</Link> ou <Link to="/subscribe">Inscrivez vous</Link>
+        </div>
       </header>
     </div>
   );

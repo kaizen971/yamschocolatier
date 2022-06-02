@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin: 40px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,49 +14,106 @@
   }
 }
 
-.App-header {
-  background-color: #e1c1b0;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #673824;
+}
+
+ul {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+}
+
+li {
+  text-decoration: none !important;
   display: flex;
-  flex-direction: column;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+.nav {
+  background-color: #28323b;
+  height: 50px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.nav li {
+  margin-right: 100px;
+}
+
+.nav a {
+  color: white;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  color: #e1c1b0;
+}
+
+.login_subscribe a {
+  text-decoration: underline;
+}
+
+input::placeholder {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.formLogin,
+.formInscription {
+  background-color: #28323b;
+  border: 1px black solid;
+  text-align: center;
+  position: absolute;
+  /* postulat de départ */
+  top: 50%;
+  left: 50%;
+  /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+  /* décalage de 50% de sa propre taille */
+  width: 40%;
+  box-shadow: 5px 5px 5px rgb(66, 66, 66);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formLogin input,
+.formInscription input {
+  margin: 5px;
+  width: 80%;
+  height: 25px;
+  background-color: #28323b;
+  border: none;
+  outline: none;
+  border-bottom: 1px white solid;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  color: white;
 }
 
-ul{
-display: flex !important;
-flex-direction: row !important;
-justify-content: space-around;
+.btnConnexion,
+.confirmInscription {
+  background-color: #e1c1b0;
+  text-transform: uppercase;
+  width: 40%;
+  border: none;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: black;
+  padding: 5px;
+  font-family: "Oswald", sans-serif;
+  cursor: pointer;
 }
 
-li{
-text-decoration: none !important;
-display: flex;
-}
-
-form{
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-around;
-  
-
-}
-label{
-
+.formLogin p,
+.formInscription p {
   margin-bottom: 20px;
 }
