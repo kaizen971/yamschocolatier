@@ -40,11 +40,12 @@ return(<nav className='nav'>
     <Link to="/Yams">Yams</Link>
   </li>
   {authentification &&<li>
-    <Link to="/Disconnect">Déconnexion</Link>
+    <Link to="/Dashboard">Profil</Link>
   </li>}
   {authentification &&<li>
-    <Link to="/Dashboard">Dashboard</Link>
+    <Link to="/Disconnect">Déconnexion</Link>
   </li>}
+
 </ul>
 </nav>
 )

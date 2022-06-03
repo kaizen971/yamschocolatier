@@ -2,37 +2,34 @@ import './Yams.css';
 import Nav from '../Component/nav.js';
 import React, { useState, useEffect } from 'react';
 import { Base_Url } from '../Constants/Constants';
-import axios from 'axios'
 import { Link } from "react-router-dom";
 
 function Yams() {
-  const [tableau, settableau] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [tableau,setableau] = useState([]);
+  const [isLoading,setisLoading] = useState(false);
   const [authentification, setAuthentification] = useState(false);
-  const [resultat, setresultat] = useState({ text: null, id_victory: null });
+  const [resultat,setresultat] = useState({ text: null, id_victory: null });
 
   const SendResult = () => {
-    fetch(`${Base_Url}/Reward`, {
+    fetch(`${Base_Url}/game`, {
       method: 'get',
       mode: 'cors',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       }
-    }).then((response)=>{
-
-      console.log(response);
-
     })
-
+    .then((result)=>result.json())
+    .then(
+      (data) =>{
+        setableau(data.tableau);
+        setresultat(data.result);
+        setisLoading(true)
+      }
+    )
   }
 
-  useEffect(() => {
-    if (resultat.id_victory) {
-      console.log(resultat.id_victory);
-      SendResult(resultat.id_victory);
-    }
-  }, [resultat]);
+
 
   useEffect(() => {
     // Met à jour le titre du document via l’API du navigateur
@@ -69,10 +66,16 @@ function Yams() {
 
 
       {authentification && <header className="App-header">
-        <p>Jeux Yams</p>
-        {resultat.text != null && resultat.text !== false && <p style={{color:'green'}}>{`Bien joué !! Vous gagnez en faisant ${resultat.text}`}</p>}
-        {resultat.text === false && <p style={{color:'red'}}>{`Vous avez perdu`}</p>}
-        {isLoading === true && <div className='container'>
+        <h1 className='jeu'>Jeu Yams</h1>
+
+        {isLoading === false &&<a className='dice' href="https://www.gifsanimes.com/cat-des-710.htm"><img class="imgDice" src="https://www.gifsanimes.com/data/media/710/de-image-animee-0020.gif" border="0" alt="de-image-animee-0020" /></a>}
+
+        
+        {resultat?.text != null && resultat?.text !== false && <p style={{color:'green'}}>{`Bien joué !! Vous gagnez en faisant ${resultat.text}`}</p>} 
+       {resultat?.text === false && <p style={{color:'red'}}>{`Vous avez perdu`}</p>} 
+       { resultat?.id_victory > 0 && <p style={{color:'black'}}>{`Vous avez gagné ${resultat?.id_victory} récompense(s) !! Pensez à regarder votre profil`}</p>} 
+       
+       {isLoading === true && <div className='container'>
           <div className='dé'>
             <img src={require(`../Assets/${tableau[0]}.png`)} alt="dé_1" className='imageDice'/>
           </div>
@@ -89,7 +92,7 @@ function Yams() {
             <img src={require(`../Assets/${tableau[4]}.png`)} alt="dé_5" className='imageDice'/>
           </div>
         </div>}
-        <button onClick={SendResult}>Lancer le jeu Yams</button>
+        <button className='btnYams' onClick={SendResult}>Lancer le jeu Yams</button>
       </header>}
 
     </div>

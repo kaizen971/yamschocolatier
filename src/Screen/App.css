@@ -29,7 +29,7 @@ ul {
   justify-content: space-around;
 }
 
-li {
+.nav li {
   text-decoration: none !important;
   display: flex;
 }
@@ -93,7 +93,6 @@ input::placeholder {
   border: none;
   outline: none;
   border-bottom: 1px white solid;
-  font-family: "Oswald", sans-serif;
   font-size: 18px;
   color: white;
 }
@@ -106,14 +105,49 @@ input::placeholder {
   border: none;
   margin: auto;
   margin-bottom: 10px;
+  margin-top: 15px;
   font-size: 20px;
   color: black;
   padding: 5px;
-  font-family: "Oswald", sans-serif;
   cursor: pointer;
+}
+
+.btnConnexion:hover,
+.confirmInscription:hover {
+  background-color: #673824;
+  color: black;
+  transition: background-color 0.5s 0s ease;
+  transition: color 0.5s 0s ease;
 }
 
 .formLogin p,
 .formInscription p {
   margin-bottom: 20px;
+}
+
+.recompense li {
+  list-style-type:none;
+  font-style: italic;
+}
+
+.listeRecompense {
+  margin-bottom: 50px;
+}
+
+.recompense p {
+  margin-bottom: 5px; 
+  margin-top: -20px;
+}
+
+.initStock {
+  background-color: #e40c0c;
+  text-transform: uppercase;
+  width: 40%;
+  border: none;
+  margin: auto;
+  font-size: 20px;
+  margin-bottom: 50px;
+  color: #e1c1b0;
+  padding: 5px;
+  cursor: pointer;
 }

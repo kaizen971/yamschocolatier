@@ -44,7 +44,7 @@ function Inscription() {
     <div className="App">
       <Nav />
       {subscribeconfirm && <p style={{color:"green"}}>Inscription réussie</p>}
-      {subscribeconfirm == false && <p style={{color:"red"}}>Inscription échouée</p>}
+      {subscribeconfirm === false && <p style={{color:"red"}}>Inscription échouée</p>}
       <header className="App-header">
       <div className='formInscription' >
           <p>Formulaire d'inscription</p>

@@ -1,8 +1,7 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Nav from '../Component/nav';
 import { Base_Url } from '../Constants/Constants';
-import { useNavigate } from "react-router-dom";
 
 
 function App2() {
@@ -31,7 +30,6 @@ function App2() {
       })
   }
 
-  let navigate = useNavigate();
 
 
 

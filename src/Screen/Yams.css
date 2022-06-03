@@ -9,7 +9,6 @@
 
 .App-header {
   background-color: #e1c1b0;
-  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,12 +49,54 @@ form {
   margin-top: 5px;
 }
 
-
-
 .login_subscribe a {
   text-decoration: underline;
 }
 
 .authenError {
   margin-top: 20%;
+}
+
+
+.btnYams {
+  background-color: #28323b;
+  text-transform: uppercase;
+  width: 25%;
+  border: none;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  font-size: 20px;
+  color: #e1c1b0;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  /* postulat de départ */
+  top: 80%;
+  left: 50%;
+  /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+  /* décalage de 50% de sa propre taille */
+}
+
+.btnYams:hover {
+  background-color: #673824;
+  color: white;
+  transition: background-color 0.5s 0s ease;
+  transition: color 0.5s 0s ease;
+}
+ 
+.dice {
+  position: absolute;
+  /* postulat de départ */
+  top: 50%;
+  left: 50%;
+  /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+  /* décalage de 50% de sa propre taille */
+}
+
+.imgDice {
+  width: 122px;
+  height: 114px;
 }

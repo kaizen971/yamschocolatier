@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Nav />
       <header className="App-header">
-        <h1>Bienvenue à la chocolaterie de Jordan !</h1>
+        <h1>Bienvenue à la <span style={{color:"#47150C"}}>Brioche écarlate !</span></h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>Vous souhaitez gagner une ou plusieurs patisseries simplement en jouant ?</p>
         <div className='login_subscribe'>
