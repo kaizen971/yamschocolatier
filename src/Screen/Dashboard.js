@@ -92,17 +92,13 @@ function takerewards(tab) {
 
   switch (tab.length) {
     case 1:
-      return ('une paire')
-      break;
+      return ('une paire');
     case 2:
-      return ('un full')
-      break;
+      return ('un full');
     case 3:
-      return ('un carré')
-      break;
+      return ('un carré');
     case 4:
-      return ('un Yams')
-      break;
+      return ('un Yams');
     default:
 
   }
