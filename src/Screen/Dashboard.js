@@ -101,8 +101,6 @@ function takerewards(tab) {
       return ('un Yams');
     default:
 
-  }
-
-}
+  }}
 
 export default Dashboard;

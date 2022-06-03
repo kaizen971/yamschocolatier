@@ -68,7 +68,7 @@ function Yams() {
       {authentification && <header className="App-header">
         <h1 className='jeu'>Jeu Yams</h1>
 
-        {isLoading === false &&<a className='dice' href="https://www.gifsanimes.com/cat-des-710.htm"><img class="imgDice" src="https://www.gifsanimes.com/data/media/710/de-image-animee-0020.gif" border="0" alt="de-image-animee-0020" /></a>}
+        {isLoading === false &&<a className='dice' href="https://www.gifsanimes.com/cat-des-710.htm"><img class="imgDice" src="https://www.gifsanimes.com/data/media/710/de-image-animee-0020.gif" border="0" alt="gif dé" /></a>}
 
         
         {resultat?.text != null && resultat?.text !== false && <p style={{color:'green'}}>{`Bien joué !! Vous gagnez en faisant ${resultat.text}`}</p>} 
