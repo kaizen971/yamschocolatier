@@ -50,6 +50,7 @@ function Dashboard() {
       <Nav />
       <header className="App-header">
         <h1 className='listeRecompense'>Liste des récompenses</h1>
+        {data?.length === 0 &&<p>Vous n'avez pas de récompense pour le moment</p>} 
         {data != null && data.length > 0 &&
           data.map((response) => {
             return (
@@ -92,12 +93,18 @@ function takerewards(tab) {
   switch (tab.length) {
     case 1:
       return ('une paire')
+      break;
     case 2:
       return ('un full')
+      break;
     case 3:
       return ('un carré')
+      break;
     case 4:
       return ('un Yams')
+      break;
+    default:
+
   }
 
 }
