@@ -42,6 +42,9 @@ return(<nav className='nav'>
   {authentification &&<li>
     <Link to="/Disconnect">Déconnexion</Link>
   </li>}
+  {authentification &&<li>
+    <Link to="/Dashboard">Dashboard</Link>
+  </li>}
 </ul>
 </nav>
 )

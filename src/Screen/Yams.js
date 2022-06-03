@@ -2,6 +2,7 @@ import './Yams.css';
 import Nav from '../Component/nav.js';
 import React, { useState, useEffect } from 'react';
 import { Base_Url } from '../Constants/Constants';
+import axios from 'axios'
 import { Link } from "react-router-dom";
 
 function Yams() {
@@ -10,83 +11,20 @@ function Yams() {
   const [authentification, setAuthentification] = useState(false);
   const [resultat, setresultat] = useState({ text: null, id_victory: null });
 
-  const DiceLength = 5;
-  function shuffleDice() {
-    setIsLoading(false);
-    let dicetab = tableau;
-    if (dicetab.length === 5) {
-      dicetab = [];
-    }
-    for (let i = 0; i < DiceLength; i++) {
-      var RandomNumber = Math.floor(Math.random() * 6) + 1;
-      dicetab.push(RandomNumber)
-    }
-    settableau(dicetab);
-    result(dicetab);
-    setIsLoading(true);
-  }
-  function result(dicetab) {
-    let compteur = [0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < dicetab.length; i++) {
-      switch (dicetab[i]) {
-        case 1:
-          compteur[0] = compteur[0] + 1;
-          break;
-        case 2:
-          compteur[1]++;
-          break;
-        case 3:
-          compteur[2]++;
-          break;
-        case 4:
-          compteur[3]++;
-          break;
-        case 5:
-          compteur[4]++;
-
-          break;
-        case 6:
-          compteur[5]++;
-          break;
-        default:
-          break;
-      }
-
-    }
-
-    if (compteur.includes(2)) {
-      setresultat({ text: "une Paire", id_victory: 1 })
-
-    }
-    else if (compteur.includes(3)) {
-      setresultat({ text: "un Full", id_victory: 2 })
-
-    }
-    else if (compteur.includes(4)) {
-      setresultat({ text: "un Carré", id_victory: 3 })
-
-    }
-    else if (compteur.includes(5)) {
-      setresultat({ text: "un Yams", id_victory: 4 })
-
-    }
-    else {
-      setresultat({ text: false, id_victory: 0 })
-
-    }
-  }
-
-  const SendResult = (result) => {
-    var body = { id_victory: result };
+  const SendResult = () => {
     fetch(`${Base_Url}/Reward`, {
-      method: 'post',
+      method: 'get',
       mode: 'cors',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body)
+      }
+    }).then((response)=>{
+
+      console.log(response);
+
     })
+
   }
 
   useEffect(() => {
@@ -151,7 +89,7 @@ function Yams() {
             <img src={require(`../Assets/${tableau[4]}.png`)} alt="dé_5" className='imageDice'/>
           </div>
         </div>}
-        <button onClick={shuffleDice}>Lancer le jeu Yams</button>
+        <button onClick={SendResult}>Lancer le jeu Yams</button>
       </header>}
 
     </div>

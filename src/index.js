@@ -8,6 +8,7 @@ import Yams from './Screen/Yams'
 import Deconnexion from './Screen/Deconnexion';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from './Screen/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,8 @@ root.render(
     <Route path="/subscribe" element={<Inscription/>} />
     <Route path="/Yams" element={<Yams/>} />
     <Route path="/Disconnect" element={<Deconnexion/>} />
+    <Route path="/Dashboard" element={<Dashboard/>} />
+
   </Routes>
 </BrowserRouter>
 );
